@@ -4,6 +4,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.minimessage.tag.standard.StandardTags;
+import org.bukkit.Bukkit;
 
 /**
  * Builds safe {@link Component}s from raw player chat input.
@@ -30,18 +31,21 @@ public final class PlayerMessages {
         TagResolver resolver = allowGradients
                 ? TagResolver.resolver(
                         StandardTags.color(),
-                        StandardTags.shadowColor(),
                         StandardTags.decorations(),
                         StandardTags.gradient(),
                         StandardTags.transition(),
-                        StandardTags.rainbow(),
-                        StandardTags.pride(),
                         StandardTags.reset())
                 : TagResolver.resolver(
                         StandardTags.color(),
-                        StandardTags.shadowColor(),
                         StandardTags.decorations(),
                         StandardTags.reset());
+        try {
+            resolver = allowGradients ?
+                    TagResolver.resolver(resolver, TagResolver.resolver(StandardTags.shadowColor(), StandardTags.pride(), StandardTags.rainbow()))
+                    : TagResolver.resolver(resolver, TagResolver.resolver(StandardTags.shadowColor()));
+        } catch (NoSuchMethodError e) {
+            Bukkit.getLogger().warning("Failed to load StandardTags.shadowColor");
+        }
         return MiniMessage.builder().tags(resolver).build();
     }
 

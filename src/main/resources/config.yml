@@ -24,7 +24,7 @@
 # PlaceholderAPI placeholders (%...%) are supported inside formats when PlaceholderAPI is installed.
 
 # Main chat format.
-chat-format: "{prefix}{name}<dark_gray> »<reset> {message}"
+chat-format: "{head} {prefix}{name}<dark_gray> »<reset> {message}"
 
 # Per-group formats (optional). Remove the leading '#' to enable.
 group-formats:

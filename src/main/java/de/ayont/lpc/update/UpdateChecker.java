@@ -23,7 +23,7 @@ import java.time.Duration;
  */
 public final class UpdateChecker implements Listener {
 
-    private static final String PROJECT_SLUG = "lpc-chat";
+    private static final String PROJECT_SLUG = "lpc-chat-avatars";
     private static final String VERSIONS_URL =
             "https://api.modrinth.com/v2/project/" + PROJECT_SLUG + "/version";
     private static final String DOWNLOAD_URL = "https://modrinth.com/plugin/" + PROJECT_SLUG;
