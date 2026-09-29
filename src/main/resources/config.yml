@@ -9,6 +9,7 @@
 # Placeholders usable in formats:
 #   {message}         - the chat message (inserted safely, never re-parsed)
 #   {name}            - the player's name
+#   {head}            - a sprite of the player's head
 #   {displayname}     - the player's display name / nickname
 #   {gradient-name}   - the player's name wrapped in their rank gradient (see gradient-names)
 #   {world}           - the player's current world

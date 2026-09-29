@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.ayont'
-version = project.findProperty('project_version') ?: '4.4.0'
+version = project.findProperty('project_version') ?: '4.5.0'
 
 // ─── Single universal jar ─────────────────────────────────────────────────────
 // LPC compiles ONCE against the lowest supported platform (Paper 1.21 / Adventure 4 / Java 21,
@@ -18,12 +18,12 @@ version = project.findProperty('project_version') ?: '4.4.0'
 //     an Adventure 5 runtime, simulating exactly what a Paper 26.2 server does.
 //
 // This is why there is only one jar instead of two.
-final def PAPER = '1.21.11-R0.1-SNAPSHOT'
+final def PAPER = '26.3.build.35-alpha'
 final def ADVENTURE = '4.23.0'
 final def ADVENTURE_NEXT = '5.2.0' // Adventure 5 runtime, used only by crossCompatTest
 final def GSON = '2.10.1'
-final def TARGET_JAVA = 21
-final def API_VERSION = '1.21'
+final def TARGET_JAVA = 25
+final def API_VERSION = '26.3'
 
 repositories {
     mavenCentral()
@@ -108,7 +108,7 @@ processResources {
             version       : version,
             apiVersion    : API_VERSION,
             buildTarget   : 'universal',
-            buildMc       : '1.21.x–26.2',
+            buildMc       : '1.21.x–26.3',
             buildJava     : TARGET_JAVA,
             buildAdventure: ADVENTURE
     ]

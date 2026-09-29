@@ -218,7 +218,8 @@ public final class ChatFormatService {
                 .replace("{name}", source.getName())
                 .replace("{displayname}", trustedMiniMessage.serialize(displayName))
                 .replace("{username-color}", orEmpty(metaData.getMetaValue("username-color")))
-                .replace("{message-color}", orEmpty(metaData.getMetaValue("message-color")));
+                .replace("{message-color}", orEmpty(metaData.getMetaValue("message-color")))
+                .replace("{head}", String.format("<head:%s>", source.getUniqueId()));
     }
 
     private String gradientName(Player source, CachedMetaData metaData) {
